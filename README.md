@@ -1,7 +1,8 @@
 # Rpc
 #  1.环境配置
 ## 1.1 环境搭建
-开发环境：Linux(Ubuntu 22.04.03 LTS),gcc version 11.4.0
+开发环境：Linux(Ubuntu 22.04.03 LTS),gcc version 11.4.0  
+
 开发工具：VsCode,VMware Workstation Pro,MobaXterm,通过ssh远程连接linux机器
 ## 1.2 依赖库安装
 ### 1.2.1 protobuf
