@@ -6,13 +6,13 @@
 ## 1.2 依赖库安装
 ### 1.2.1 protobuf
 安装过程：  
-'''  
+```
 //借鉴：https://zhuanlan.zhihu.com/p/631291781  
 https://github.com/protocolbuffers/protobuf/releases/tag/v21.11  
 tar -xzvf protobuf-3.21.11.tar.gz  
-'''  
+```
 指定安装目录  
-'''  
+```
 ./configure --prefix=/usr/local/protobuf  
 sudo apt install make //报错找不到libtool路径  
 sudo apt install libtool-bin  
@@ -20,9 +20,9 @@ sudo apt install libtool-bin
 ./configure --prefix=/usr/local/protobuf  
 make -j4  
 sudo make install  
-'''  
-在系统配置文件中添加以下内容
-'''  
+```
+在系统配置文件中添加以下内容  
+```
 sudo vim /etc/profile  
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/protobuf/lib/  
@@ -37,5 +37,7 @@ export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/protobuf/include/
 #pkg-config 路径  
 export PKG_CONFIG_PATH=/usr/local/protobuf/lib/pkgconfig/  
 
-source /etc/profile/  
-'''  
+source /etc/profile/ 
+```
+ 
+
