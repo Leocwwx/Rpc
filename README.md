@@ -39,5 +39,45 @@ export PKG_CONFIG_PATH=/usr/local/protobuf/lib/pkgconfig/
 
 source /etc/profile/ 
 ```
- 
+ ### 1.2.2 tinxml
+ 项目采用到配置模块，使用xml作为配置文件，使用tinyxml解析xml文件
+ 安装过程：
+ ```
+ https://sourceforge.net/projects/tinyxml/files/latest/download
+ unzip tinyxml_2_6_2.zip
+ //修改OUPUT xmltest为libtinyxml.a
+ make -j4
+ //将头文件和库文件移动到对应位置
+ cd /usr/local/
+ sudo mkdir tinyxml
+ cd tinyxml
+ sudo mkdir include
+ sudo mkdir lib
+ ...
+ sudo cp *h /usr/local/tinyxml/include
+ sudo cp libtinyxml.a /usr/local/tinyxml/lib
+ ```
+# 2.模块开发
+## 2.1 日志模块
+1.日志级别
+2.打印大文件，以日期命名滚动
+3.以c风格
+4.支持线程安全
+
+LogLevel:
+```
+Debug
+Info
+Error
+```
+
+LogEvent:
+```
+文件名、行号
+Msg
+Tread id
+proc id
+日期及时间精确到毫秒
+自定义消息
+```
 
