@@ -1,12 +1,12 @@
 #include <iostream>
 #include "contacts.pb.h"
-#include "hello.h"
+
 
 int main()
 {
     std::string people_str;
-
-    {cd 
+    
+    {
         //对应该联系人的信息使用PB进行序列化，并将结果打印出来
         contacts::PeopleInfo people;
         people.set_name("张三");
