@@ -7,18 +7,18 @@
 
 namespace rocket{
 
-template<typename... Args>
-std::string formatString(const char* str,Args&&... agrs)
-{
-    int size = snprintf(nullptr,0,str,args...);
-    std::string res;
-    if(size > 0)
-    {
-        res.resize(size);
-        snprintf(res,size+1,str,args...);
-    }
-    return res;
-}
+// template<typename... Args>
+// std::string formatString(const char* str,Args&&... args)
+// {
+//     int size = snprintf(nullptr,0,str,args...);
+//     std::string res;
+//     if(size > 0)
+//     {
+//         res.resize(size);
+//         snprintf(res,size+1,str,args...);
+//     }
+//     return res;
+// }
 
 static Logger* g_logger = nullptr;
 
@@ -43,7 +43,7 @@ void Logger::log()
     {
         std::string msg = m_buffer.front();
         m_buffer.pop();
-        printf(msg.c_str());
+        printf("%s",msg.c_str());
     }
 }
 

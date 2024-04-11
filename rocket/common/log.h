@@ -4,19 +4,32 @@
 #include <queue>
 namespace rocket
 {
+// template<typename... Args>
+// std::string formatString(const char* str,Args&&... args);
+
+template<typename... Args>
+std::string formatString(const char* str,Args&&... args)
+{
+    int size = snprintf(nullptr,0,str,args...);
+    std::string res;
+    if(size > 0)
+    {
+        res.resize(size);
+        snprintf(&res[0],size+1,str,args...);
+    }
+    return res;
+}
+
 #define DEBUGLOG(str,...)\
-    std::string msg = (new LogEvent(Debug))->toString() + formatString(str,##__VA_ARGS__);\
-    Logger::getLoggerInstance()->pushLog(msg);\
-    Logger::getLoggerInstance()->log(); \
+    std::string msg = (new rocket::LogEvent(rocket::Debug))->toString() + rocket::formatString(str,##__VA_ARGS__);\
+    rocket::Logger::getLoggerInstance()->pushLog(msg);\
+    rocket::Logger::getLoggerInstance()->log(); \
 
 enum LogLevel{
     Debug = 1,
     Info = 2,
     Error = 3
 };
-
-template<typename... Args>
-std::string formatString(const char* str,Args&&... args);
 
 std::string LogLevelToString(LogLevel level);
 
@@ -36,6 +49,7 @@ private:
 
 class LogEvent{
 public:
+    LogEvent(LogLevel level):m_level(level){};
     std::string getFileName()
     {
         return m_file_name;
